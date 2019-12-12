@@ -58,7 +58,7 @@ public class Rh {
             }           
         else{
             this.numeroengenheiros = this.numeroengenheiros - entrada;
-            System.out.println("O numero de engenheiros CONTRADOS na empresa é de  0 visto que já existia pessoa suficiente.\n Pessoa alocadas = "+ entrada);
+            System.out.println("O numero de engenheiros CONTRADOS na empresa é de  0 visto que já existia "+this.numeroengenheiros+"\n Pessoa alocadas = "+ entrada);
             
        }}
        
@@ -68,12 +68,10 @@ public class Rh {
                 this.numerotecnicos = entrada1 - this.numerotecnicos;
                 System.out.println("O numero de tecnicos CONTRADOS na empresa é de "+this.numerotecnicos+".");
                 
-            }
-        else{
-            this.numerotecnicos = this.numerotecnicos - entrada1;
-            System.out.println("O numero de tecnicos CONTRADOS na empresa é de  0 visto que já existia pessoa suficiente.\n Pessoa alocadas = "+ entrada1);
-            
-       }} 
+            }}
+        if (entrada1 < this.numerotecnicos){
+            System.out.println("O numero de tecnicos CONTRADOS na empresa é de  0 visto que já existia "+this.numerotecnicos+" suficientes.\n Pessoa alocadas = "+ entrada1);
+       }     
         
        //contratando gerente
        if (entrada2 > this.numerogerente){
@@ -87,7 +85,7 @@ public class Rh {
             System.out.println("O numero de gerentes de projeto CONTRADOS na empresa é de  0 visto que já existia pessoa suficiente.\n Pessoa alocadas = "+ entrada2);
            }   
        }
-
+       System.out.println("O numero de gerentes de projeto CONTRADOS na empresa é de "+this.numerogerente+".");
               
     return projetoalocado;
     }
@@ -116,7 +114,7 @@ public class Rh {
                 System.out.println("O numero atual de gerentes de producao na empresa é "+this.numerogerente +".");        
         }
 
-            else if (this.numeroengenheiros <= projeto.getNumeroengenheiro() && this.numerotecnicos <= projeto.getNumerotecnico()){
+            if (this.numeroengenheiros <= projeto.getNumeroengenheiro() && this.numerotecnicos <= projeto.getNumerotecnico()){
 
                 this.numeroengenheiros = projeto.getNumeroengenheiro();
                 System.out.println("O numero atual de engenheiros na empresa é "+this.numeroengenheiros +".");
@@ -128,7 +126,7 @@ public class Rh {
                 System.out.println("O numero atual de gerentes de producao na empresa é "+this.numerogerente +".");
         }
 
-            else if (this.numeroengenheiros > projeto.getNumeroengenheiro() && this.numerotecnicos <= projeto.getNumerotecnico()){
+            if (this.numeroengenheiros > projeto.getNumeroengenheiro() && this.numerotecnicos <= projeto.getNumerotecnico()){
 
                 this.numeroengenheiros = this.numeroengenheiros + projeto.getNumeroengenheiro();
                 System.out.println("O numero atual de engenheiros na empresa é "+this.numeroengenheiros +".");
@@ -140,12 +138,12 @@ public class Rh {
                 System.out.println("O numero atual de gerentes de producao na empresa é "+this.numerogerente +".");
         }
 
-            else if (this.numeroengenheiros <= projeto.getNumeroengenheiro() && this.numerotecnicos > projeto.getNumerotecnico()){
+            if (this.numeroengenheiros <= projeto.getNumeroengenheiro() && this.numerotecnicos > projeto.getNumerotecnico()){
 
                 this.numeroengenheiros = projeto.getNumeroengenheiro();
                 System.out.println("O numero atual de engenheiros na empresa é "+this.numeroengenheiros +".");
 
-                this.numerotecnicos= this.numerotecnicos + projeto.getNumerotecnico();
+                this.numerotecnicos= this.numerotecnicos;
                 System.out.println("O numero atual de tecnicos na empresa é "+this.numerotecnicos +".");
 
                 this.numerogerente = this.numerogerente + projeto.getNumerogerente();
